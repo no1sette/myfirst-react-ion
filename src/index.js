@@ -1,17 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-var style = {
-  backgroundColor: "teal",
-  color: "white",
-  font: "Arial",
-};
+class Message extends React.Component {
+  render() {
+    console.log(this.props)
+    return (
+      <div>
+        <h1 style={{color: this.props.color}}>
+          {this.props.msg}
+          </h1>
+          <p>I'll check back in {this.props.minutes} minutes</p>
+      </div>
+    )
+  }
+}
 
-ReactDOM.render(
-  <div style={style}>
-    <h1 id="heading-element">Hello World</h1>
-    <p>Glad you're here.</p>
-  </div>,
-
-  document.getElementById("root")
+ReactDOM.render(<Message minutes={5} color="blue" msg="how are you?"/>, document.getElementById("root")
 );
